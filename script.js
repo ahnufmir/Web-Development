@@ -96,9 +96,16 @@ console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 
 // Simple Normal Function
 
-// const addTwoNumbers = function (num1, num2){
+// const addTwoNumbers = function (num1, num2){   Normal Functions
 //     return num1 + num2;
 // }
-const addTwoNumbers =  (num1, num2) => (num1 + num2);
+const addTwoNumbers =  (num1, num2) => (num1 + num2);   // Arrow Functions
+
+(()=>(console.log("DB Connected!"))) ();  // iife function
 
 console.log(addTwoNumbers(5,5));
+
+const array = [10,20,30];
+let initialValue = 0;
+const total = array.reduce((acc, currentValue) => (acc+currentValue),initialValue);
+console.log(total)
