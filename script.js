@@ -82,15 +82,15 @@
 
 // Objects
 
-const tinderUser = {};
-tinderUser.name = "Ahnuf Mir";
-tinderUser.id = 123;
-tinderUser.isLoggedIn = true;
+// const tinderUser = {};
+// tinderUser.name = "Ahnuf Mir";
+// tinderUser.id = 123;
+// tinderUser.isLoggedIn = true;
 
-console.log(tinderUser);
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
-console.log(tinderUser.hasOwnProperty('isLoggedIn'));
+// console.log(tinderUser);
+// console.log(Object.keys(tinderUser));
+// console.log(Object.values(tinderUser));
+// console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 
 // Function with objects
 
@@ -99,13 +99,22 @@ console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 // const addTwoNumbers = function (num1, num2){   Normal Functions
 //     return num1 + num2;
 // }
-const addTwoNumbers =  (num1, num2) => (num1 + num2);   // Arrow Functions
+// const addTwoNumbers =  (num1, num2) => (num1 + num2);   // Arrow Functions
 
-(()=>(console.log("DB Connected!"))) ();  // iife function
+// (()=>(console.log("DB Connected!"))) ();  // iife function
 
-console.log(addTwoNumbers(5,5));
+// console.log(addTwoNumbers(5,5));
 
-const array = [10,20,30];
-let initialValue = 0;
-const total = array.reduce((acc, currentValue) => (acc+currentValue),initialValue);
-console.log(total)
+// const array = [10,20,30];
+// let initialValue = 0;
+// const total = array.reduce((acc, currentValue) => (acc+currentValue),initialValue);
+// console.log(total)
+
+for (let index = 0; index < 5; index++) {
+    var t = 10;
+    let a = 3;
+    console.log(a);
+}
+
+console.log(t);
+console.log(a);
