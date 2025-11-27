@@ -44,6 +44,28 @@ button {
   /* margin-left: 75px; */
 }
 
+#newBtn {
+  background-color: #161616;
+  color: #ffffff;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  border-style: none;
+  margin: 40px auto 0 auto; /* TOP auto LEFT/RIGHT auto */
+  display: block;
+  /* margin-left: 75px; */
+  /* margin-bottom: 20px; */
+}
+
+button, #newBtn, #subt {
+  display: inline-flex;         /* or block/inline-block + flex inside */
+  align-items: center;          /* vertical center */
+  justify-content: center;      /* horizontal center */
+  text-align: center;
+  line-height: normal;          /* remove conflicting line-height */
+}
+
 #guessField {
   color: #000;
   width: 250px;
@@ -72,7 +94,6 @@ button {
   box-sizing: border-box;
   text-align: center;
   width: 450px;
-  height: 550px;
   background-color: #474747;
   color: #fff;
   font-size: 25px;
