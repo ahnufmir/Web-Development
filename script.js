@@ -110,11 +110,11 @@
 // const total = array.reduce((acc, currentValue) => (acc+currentValue),initialValue);
 // console.log(total)
 
-for (let index = 0; index < 5; index++) {
-    var t = 10;
-    let a = 3;
-    console.log(a);
-}
+// for (let index = 0; index < 5; index++) {
+//     var t = 10;
+//     let a = 3;
+//     console.log(a);
+// }
 
-console.log(t);
-console.log(a);
+// console.log(t);
+// console.log(a);
