@@ -106,7 +106,7 @@
 // It always retunrs a function. If the returning value is promise, then it will take the promise as it is. If the returning value is non-promise type like integers, boolean etc, it wraps inside that value into promise and then return promise
 
 const p = new Promise((resolve, reject) => {
-    reject("Promise not resolved earlier")
+    resolve("Promise resolved earlier 1")
 })
 
 async function getData(params) {
@@ -117,3 +117,37 @@ const data = getData();
 data
 .then((res)=>console.log(res))
 .catch((res)=> console.log(res))
+
+// Async keyword
+// It always retunrs a function. If the returning value is promise, then it will take the promise as it is. If the returning value is non-promise type like integers, boolean etc, it wraps inside that value into promise and then return promise
+
+const pr = new Promise((resolve, reject) => {
+    reject("Promise not resolved earlier 2")
+})
+
+async function getData1() {
+    return pr;
+}
+
+const data1 = getData1();
+data1
+.then((res)=>console.log(res))
+.catch((res)=> console.log(res))
+
+// Await keyword is not only used in async function 
+
+const pro = new Promise(function(resolve, reject){
+   resolve("Promise resolved ");
+});
+
+async function handlePromise() {
+    const value = await pro;
+    console.log(value);
+}
+
+handlePromise();
+
+// Outputs
+// script.js:145 Promise resolved 
+// script.js:118 Promise resolved earlier 1
+// script.js:135 Promise not resolved earlier 2
