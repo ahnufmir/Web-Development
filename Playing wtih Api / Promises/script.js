@@ -15,11 +15,9 @@
 //         nameUser.innerHTML = data.login;
 //         followers.innerHTML = data.followers;
 
-
 //     }
 // }
 // xhr.send();
-
 
 // Fetch
 // const GITHUB_URL = "http://api.github.com/users/ahnufmir";
@@ -32,45 +30,64 @@
 
 const cart = ["elon musk", "sam altman", "larry page", "steve jobs"];
 
-createOrder(cart)
-    .then(function(orderId){
-        console.log(orderId);
-    })
-    .then(function(orderId){
-        proceedToPayment(orderId);
-    })
-    .catch(function(err){
-        console.log(err);
-    })
+// createOrder(cart)
+//   .then(function (orderId) {
+//     console.log(orderId);
+//   })
+//   .then(function (orderId) {
+//     proceedToPayment(orderId);
+//   })
+//   .catch(function (err) {
+//     console.log(err);
+//   });
 
-function createOrder(cart){
-    const promise = new Promise(function(resolve, reject){
+// function createOrder(cart) {
+//   const promise = new Promise(function (resolve, reject) {
+//     if (!validateCart(cart)) {
+//       const error = "Cart is not validated";
+//       reject(error);
+//     } else {
+//       const orderId = "233";
+//       if (orderId) {
+//         resolve(orderId);
+//       }
+//     }
+//   });
+//   return promise;
+// }
 
-    if(!validateCart(cart)){
-        const error = "Cart is not validated";
-        reject(error);
-    }
-    else
-    {
-        const orderId = "233";
-        if(orderId){
-            resolve(orderId);
-        }
-    }
+// function proceedToPayment(orderId) {
+//   return new Promise(function (resolve, reject) {
+//     resolve("Payment Successful");
+//   });
+// }
 
+// function validateCart(cart) {
+//   return false;
+// }
+
+const promise = createOrderByID(cart);
+console.log(promise);
+
+promise.then((orderID) => console.log(orderID));
+
+function createOrderByID(cart) {
+  const Pr = new Promise(function (resolve, reject) {
+    if (!validateCart(cart)) {
+      const err = new Error("Cart is not validated");
+      reject(err);
     }
-)
-return promise;
+    const orderID = "1234";
+    if (orderID) {
+      setTimeout(() => {
+        resolve(orderID);
+      }, 10000);
+    }
+  }
+);
+return Pr;
 }
 
-function proceedToPayment(orderId){
-    return new Promise(
-        function(resolve, reject){
-            resolve("Payment Successful");
-        }
-    )
-}
-
-function validateCart(cart){
-    return false;
+function validateCart(cart) {
+  return true;
 }
