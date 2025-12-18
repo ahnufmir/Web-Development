@@ -28,72 +28,92 @@
 //     console.log(data);
 // })
 
-const cart = ["elon musk", "sam altman", "larry page", "steve jobs"];
+// const cart = ["elon musk", "sam altman", "larry page", "steve jobs"];
 
-// createOrder(cart)
-//   .then(function (orderId) {
-//     console.log(orderId);
-//   })
-//   .then(function (orderId) {
-//     proceedToPayment(orderId);
-//   })
-//   .catch(function (err) {
-//     console.log(err);
-//   });
+// // createOrder(cart)
+// //   .then(function (orderId) {
+// //     console.log(orderId);
+// //   })
+// //   .then(function (orderId) {
+// //     proceedToPayment(orderId);
+// //   })
+// //   .catch(function (err) {
+// //     console.log(err);
+// //   });
 
-// function createOrder(cart) {
-//   const promise = new Promise(function (resolve, reject) {
+// // function createOrder(cart) {
+// //   const promise = new Promise(function (resolve, reject) {
+// //     if (!validateCart(cart)) {
+// //       const error = "Cart is not validated";
+// //       reject(error);
+// //     } else {
+// //       const orderId = "233";
+// //       if (orderId) {
+// //         resolve(orderId);
+// //       }
+// //     }
+// //   });
+// //   return promise;
+// // }
+
+// // function proceedToPayment(orderId) {
+// //   return new Promise(function (resolve, reject) {
+// //     resolve("Payment Successful");
+// //   });
+// // }
+
+// // function validateCart(cart) {
+// //   return false;
+// // }
+
+// createOrderByID(cart)
+//   .then(function(orderID) {
+//     console.log(orderID);
+//     return orderID;
+//   })
+//   .then(orderID => proceedToPayment(orderID))
+//   .then ((paymentInfo)=> console.log(paymentInfo))
+//   .catch((err) => console.log(err.message))
+
+// function createOrderByID(cart) {
+//   const Pr = new Promise(function (resolve, reject) {
 //     if (!validateCart(cart)) {
-//       const error = "Cart is not validated";
-//       reject(error);
-//     } else {
-//       const orderId = "233";
-//       if (orderId) {
-//         resolve(orderId);
-//       }
+//       const err = new Error("Cart is not validated");
+//       reject(err);
+//     }
+//     const orderID = "1234";
+//     if (orderID) {
+//      // setTimeout(() => {
+//         resolve(orderID);
+//      // }, 5000);
 //     }
 //   });
-//   return promise;
+//   return Pr;
 // }
 
-// function proceedToPayment(orderId) {
-//   return new Promise(function (resolve, reject) {
-//     resolve("Payment Successful");
-//   });
+// function proceedToPayment(orderID){
+//   return new Promise(function(resolve, reject){
+//     resolve("Payment Done");
+//   })
 // }
 
 // function validateCart(cart) {
-//   return false;
+//   return true;
 // }
 
-createOrderByID(cart)
-  .then((orderID) => console.log(orderID))
-  .then(orderID => proceedToPayment(orderID))
-  .then ((paymentInfo)=> console.log(paymentInfo))
-  .catch((err) => console.log(err.message))
 
-function createOrderByID(cart) {
-  const Pr = new Promise(function (resolve, reject) {
-    if (!validateCart(cart)) {
-      const err = new Error("Cart is not validated");
-      reject(err);
-    }
-    const orderID = "1234";
-    if (orderID) {
-     // setTimeout(() => {
-        resolve(orderID);
-     // }, 5000);
-    }
-  });
-  return Pr;
+// Async keyword
+// It always retunrs a function. If the returning value is promise, then it will take the promise as it is. If the returning value is non-promise type like integers, boolean etc, it wraps inside that value into promise and then return promise
+
+const p = new Promise((resolve, reject) => {
+    reject("Promise not resolved earlier")
+})
+
+async function getData(params) {
+    return p;
 }
 
-function proceedToPayment(orderID){
-  return new Promise(function(resolve, reject){
-    resolve("Payment Done");
-  })
-}
-
-function validateCart(cart) {
-  return true;
-}
+const data = getData();
+data
+.then((res)=>console.log(res))
+.catch((res)=> console.log(res))
