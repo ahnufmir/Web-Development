@@ -66,10 +66,11 @@ const cart = ["elon musk", "sam altman", "larry page", "steve jobs"];
 //   return false;
 // }
 
-const promise = createOrderByID(cart);
-console.log(promise);
-
-promise.then((orderID) => console.log(orderID));
+createOrderByID(cart)
+  .then((orderID) => console.log(orderID))
+  .then(orderID => proceedToPayment(orderID))
+  .then ((paymentInfo)=> console.log(paymentInfo))
+  .catch((err) => console.log(err.message))
 
 function createOrderByID(cart) {
   const Pr = new Promise(function (resolve, reject) {
@@ -79,13 +80,18 @@ function createOrderByID(cart) {
     }
     const orderID = "1234";
     if (orderID) {
-      setTimeout(() => {
+     // setTimeout(() => {
         resolve(orderID);
-      }, 10000);
+     // }, 5000);
     }
-  }
-);
-return Pr;
+  });
+  return Pr;
+}
+
+function proceedToPayment(orderID){
+  return new Promise(function(resolve, reject){
+    resolve("Payment Done");
+  })
 }
 
 function validateCart(cart) {
