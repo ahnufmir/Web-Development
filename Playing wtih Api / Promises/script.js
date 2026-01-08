@@ -105,49 +105,82 @@
 // Async keyword
 // It always retunrs a function. If the returning value is promise, then it will take the promise as it is. If the returning value is non-promise type like integers, boolean etc, it wraps inside that value into promise and then return promise
 
-const p = new Promise((resolve, reject) => {
-    resolve("Promise resolved earlier 1")
-})
+// const p = new Promise((resolve, reject) => {
+//     resolve("Promise resolved earlier 1")
+// })
 
-async function getData(params) {
-    return p;
-}
+// async function getData(params) {
+//     return p;
+// }
 
-const data = getData();
-data
-.then((res)=>console.log(res))
-.catch((res)=> console.log(res))
+// const data = getData();
+// data
+// .then((res)=>console.log(res))
+// .catch((res)=> console.log(res))
 
-// Async keyword
-// It always retunrs a function. If the returning value is promise, then it will take the promise as it is. If the returning value is non-promise type like integers, boolean etc, it wraps inside that value into promise and then return promise
+// // Async keyword
+// // It always retunrs a function. If the returning value is promise, then it will take the promise as it is. If the returning value is non-promise type like integers, boolean etc, it wraps inside that value into promise and then return promise
 
-const pr = new Promise((resolve, reject) => {
-    reject("Promise not resolved earlier 2")
-})
+// const pr = new Promise((resolve, reject) => {
+//     reject("Either i will become next ELon Musk or will be none")
+// })
 
-async function getData1() {
-    return pr;
-}
+// async function getData1() {
+//     return pr;
+// }
 
-const data1 = getData1();
-data1
-.then((res)=>console.log(res))
-.catch((res)=> console.log(res))
+// const data1 = getData1();
+// data1
+// .then((res)=>console.log(res))
+// .catch((res)=> console.log(res))
 
-// Await keyword is not only used in async function 
+// // Await keyword is not only used in async function 
 
-const pro = new Promise(function(resolve, reject){
-   resolve("Promise resolved ");
-});
+// const pro = new Promise(function(resolve, reject){
+//    resolve("Promise resolved to myself : I will be next ELon Musk");
+// });
 
-async function handlePromise() {
-    const value = await pro;
-    console.log(value);
-}
+// async function handlePromise() {
+//     const value = await pro;
+//     console.log(value);
+// }
 
-handlePromise();
+// handlePromise();
 
 // Outputs
 // script.js:145 Promise resolved 
 // script.js:118 Promise resolved earlier 1
 // script.js:135 Promise not resolved earlier 2
+
+
+const pro2 = new Promise(function(resolve, reject){
+   resolve("Promise resolved to myself : I will be next ELon Musk");
+});
+
+async function handlePromise1() {
+    const value = await pro2;
+    console.log(value);
+    console.log("Waited for above line");
+}
+
+handlePromise1();
+
+const promise = new Promise(function(resolve, reject){
+   resolve("Promise resolved to myself : I will be next ELon Musk yeah");
+});
+
+async function handlePromise2() {
+    promise.then(res => console.log(res));
+    //console.log(value);
+    console.log("Waited for above line last"); // line 1
+}
+
+handlePromise2();
+
+// //Output:
+// script.js:175 Waited for above line last
+// script.js:162 Promise resolved to myself : I will be next ELon Musk
+// script.js:163 Waited for above line
+// script.js:173 Promise resolved to myself : I will be next ELon Musk yeah
+
+// Now look line 1 is printed first and then 
