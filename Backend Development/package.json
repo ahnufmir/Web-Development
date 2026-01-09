@@ -7,9 +7,10 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node express"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "url": "^0.11.4"
   }
 }
