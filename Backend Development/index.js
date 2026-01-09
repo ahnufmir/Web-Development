@@ -1,11 +1,15 @@
 const http = require("http");
 const fs = require("fs");
+const url = require("url");
 
 const server = http.createServer((req,res)=>{
     
-    const log = `${Date.now()} : ${req} New request recieved \n`;
+    const myUrl = url.parse(req.url, true)
+    console.log(myUrl);
+    const log = `${myUrl}: ${req} : ${req.method} New request recieved \n`;
     fs.appendFile("log.txt", log, (err,data)=>{
-        res.end("Hello from the server");
+        const myUserName = myUrl.query.name;
+        res.end("Hi "+ myUserName);
     })
 })
 
