@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node express"
+    "start": "node restAPI"
   },
   "dependencies": {
     "express": "^5.2.1",
