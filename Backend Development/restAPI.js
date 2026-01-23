@@ -6,6 +6,21 @@ const app = express();
 const PORT = 8000;
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  console.log("check kr meri bandmashi im middle ware 1 hahah!!");
+  next();
+});
+
+app.use((req, res, next) => {
+  fs.appendFile(
+    "log.txt",
+    `\n ${Date.now()} : ${req.method} : ${req.path}`,
+    (err, data) => {
+      next();
+    },
+  );
+});
 // for getting specfic user from any client other than browers
 // app.get("/api/users/:id", (req, res) => {
 //   const id = Number(req.params.id);
@@ -37,13 +52,19 @@ app
   })
   .post((req, res) => {
     const body = req.body;
-    users.push(body);
+    users.push({ ...body, id: users.length + 1 });
     fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
       return res.send(body);
     });
   })
   .patch((req, res) => {
-    return res.json({ status: "pending" });
+    const body = req.body;
+    users.push(body);
+    const modifiedUser = users.find((user) => user.id === body.id);
+
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
+      return res.send(body);
+    });
   })
   .delete((req, res) => {
     return res.json({ status: "pending" });

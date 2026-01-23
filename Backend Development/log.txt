@@ -1,24 +1,3 @@
-1767884946866 : / New request recieved1767900755359 : [object Object] New request recieved 
-1767900779400 : [object Object] New request recieved 
-1767900782082 : [object Object] New request recieved 
-1767900829267 : [object Object] New request recieved 
-1767900887765 : [object Object] New request recieved 
-1767900940481 : [object Object] New request recieved 
-1767900966348 : [object Object] New request recieved 
-1767901037071 : [object Object] New request recieved 
-1767901092870 : [object Object] New request recieved 
-1767901166962 : [object Object] New request recieved 
-1767901318362 : [object Object] New request recieved 
-1767901375310 : [object Object] New request recieved 
-1767901403496 : [object Object] New request recieved 
-/about : [object Object] New request recieved 
-[object Object]: [object Object] New request recieved 
-[object Object]: [object Object] New request recieved 
-[object Object]: [object Object] : GET New request recieved 
-[object Object]: [object Object] : GET New request recieved 
-[object Object]: [object Object] : GET New request recieved 
-[object Object]: [object Object] : GET New request recieved 
-[object Object]: [object Object] : GET New request recieved 
-[object Object]: [object Object] : GET New request recieved 
-[object Object]: [object Object] : GET New request recieved 
-[object Object]: [object Object] : GET New request recieved 
+1769118836779 : GET : /api/users
+1769118866988 : POST : /api/users/103
+ 1769119099988 : GET : /users
