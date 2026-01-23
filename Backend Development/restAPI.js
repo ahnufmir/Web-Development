@@ -1,6 +1,7 @@
 const express = require("express");
 const users = require("./MOCK_DATA.json");
 const fs = require("fs");
+const { builtinModules } = require("module");
 
 const app = express();
 const PORT = 8000;
@@ -59,15 +60,34 @@ app
   })
   .patch((req, res) => {
     const body = req.body;
-    users.push(body);
-    const modifiedUser = users.find((user) => user.id === body.id);
-
-    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
+    console.log(body);
+    const modifiedUser = users.find((user) => user.id === Number(req.params.id));
+    const allUsersExceptModified = users.filter((user)=> user.id !== Number(req.params.id));
+    modifiedUser.id = Number(req.params.id);
+    modifiedUser.first_name = body.first_name;
+    modifiedUser.last_name = body.last_name;
+    modifiedUser.email = body.email;
+    modifiedUser.gender = body.gender;
+    modifiedUser.ip_address = body.ip_address;
+    allUsersExceptModified.splice(Number(req.params.id), 0, modifiedUser );
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(allUsersExceptModified), (err, data) => {
       return res.send(body);
     });
   })
   .delete((req, res) => {
-    return res.json({ status: "pending" });
+    
+    // const toDeleteUser = users.find((user) => user.id === body.id);
+    // const index = users.indexOf(toDeleteUser);
+    // if(index >= 0)
+    //     users.splice(index, 1);
+    // else
+    //     return res.send("User not Found");
+    //console.log("Body: ", req.params.id);
+    //console.log("Users: ", users);
+    const updatedUsers = users.filter((user)=> user.id !== Number(req.params.id));
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(updatedUsers), (err,data)=>{
+        return res.json(updatedUsers);
+    })
   });
 
 app.listen(PORT, () => {

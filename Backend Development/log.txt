@@ -1,3 +1,30 @@
 1769118836779 : GET : /api/users
 1769118866988 : POST : /api/users/103
  1769119099988 : GET : /users
+ 1769157674230 : GET : /users
+ 1769157704571 : GET : /api/users/1
+ 1769157712554 : DELETE : /api/users/1
+ 1769158000431 : DELETE : /api/users/1
+ 1769158099188 : DELETE : /api/users/1
+ 1769158138544 : DELETE : /api/users/1
+ 1769158214220 : GET : /api/users/1
+ 1769158220432 : DELETE : /api/users/1
+ 1769158406374 : DELETE : /api/users/1
+ 1769158523002 : DELETE : /api/users/1
+ 1769158570570 : DELETE : /api/users/1
+ 1769158812597 : DELETE : /api/users/1
+ 1769163605124 : DELETE : /api/users/1
+ 1769163606692 : DELETE : /api/users/1
+ 1769163612206 : DELETE : /api/users/2
+ 1769163808270 : PATCH : /api/users/2
+ 1769163923116 : PATCH : /api/users/2
+ 1769163946439 : PATCH : /api/users/2
+ 1769164022012 : PATCH : /api/users/2
+ 1769164068172 : PATCH : /api/users/2
+ 1769164108975 : PATCH : /api/users/2
+ 1769164134288 : PATCH : /api/users/2
+ 1769164168641 : PATCH : /api/users/8
+ 1769164179920 : PATCH : /api/users/8
+ 1769164342974 : PATCH : /api/users/20
+ 1769164383211 : PATCH : /api/users/20
+ 1769164675281 : PATCH : /api/users/20
