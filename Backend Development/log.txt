@@ -76,3 +76,10 @@
  1769460963947 : DELETE : /api/users/4
  1769461001788 : DELETE : /api/users/5
  1769461209869 : GET : /api/users/21
+ 1769461426797 : GET : /api/users/21
+ 1769463087930 : GET : /api/users/ahnufmir007@gmail.com
+ 1769463336746 : GET : /api/users/ahnufmir007@gmail.com
+ 1769463355196 : GET : /api/users/ahnufmir007@gmail.com
+ 1769463396511 : GET : /api/users/ahnufmir007@gmail.com
+ 1769463632130 : GET : /api/users/ahnufmir007@gmail.com
+ 1769463668951 : GET : /api/users/ahnufmir007@gmail.com

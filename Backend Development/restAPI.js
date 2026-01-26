@@ -78,10 +78,11 @@ app.get("/users", (req, res) => {
 app
   .route("/api/users/:id")
   .get(async (req, res) => {
-    const id = Number(req.params.id);
+    const email = req.params.id;
+    console.log(email);
     // const user = users.find((user) => id === user.id);
     // return res.json(user);
-    const result = await User.get(id);
+    const result = await User.findOne({email : email});
     console.log("Result ", result);
     return res.json(result);
   })
