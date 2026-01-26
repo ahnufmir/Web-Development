@@ -77,10 +77,13 @@ app.get("/users", (req, res) => {
 
 app
   .route("/api/users/:id")
-  .get((req, res) => {
+  .get(async (req, res) => {
     const id = Number(req.params.id);
-    const user = users.find((user) => id === user.id);
-    return res.json(user);
+    // const user = users.find((user) => id === user.id);
+    // return res.json(user);
+    const result = await User.get(id);
+    console.log("Result ", result);
+    return res.json(result);
   })
   .post(async(req, res) => {
     const body = req.body;
@@ -124,7 +127,7 @@ app
       },
     );
   })
-  .delete((req, res) => {
+  .delete(async (req, res) => {
     // const toDeleteUser = users.find((user) => user.id === body.id);
     // const index = users.indexOf(toDeleteUser);
     // if(index >= 0)
@@ -133,16 +136,18 @@ app
     //     return res.send("User not Found");
     //console.log("Body: ", req.params.id);
     //console.log("Users: ", users);
-    const updatedUsers = users.filter(
-      (user) => user.id !== Number(req.params.id),
-    );
-    fs.writeFile(
-      "./MOCK_DATA.json",
-      JSON.stringify(updatedUsers),
-      (err, data) => {
-        return res.json(updatedUsers);
-      },
-    );
+    // const updatedUsers = users.filter(
+    //   (user) => user.id !== Number(req.params.id),
+    // );
+    // fs.writeFile(
+    //   "./MOCK_DATA.json",
+    //   JSON.stringify(updatedUsers),
+    //   (err, data) => {
+    //     return res.json(updatedUsers);
+    //   },
+    // );
+    await User.findOneAndDelete(req.params.id);
+    return res.status(204).json({msg: "deleted"});
   });
 
 app.listen(PORT, () => {
