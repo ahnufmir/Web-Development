@@ -56,3 +56,15 @@
  1769288734798 : PATCH : /api/users/100
  1769288769176 : DELETE : /api/users/100
  1769288780097 : DELETE : /api/users/101
+ 1769457886769 : POST : /api/users/101
+ 1769458048168 : POST : /api/users/101
+ 1769458218979 : POST : /api/users/101
+ 1769458371069 : POST : /api/users/101
+ 1769458738254 : POST : /api/users/101
+ 1769458842602 : POST : /api/users/101
+ 1769459048921 : POST : /api/users/101
+ 1769459064251 : POST : /api/users/101
+ 1769459092197 : POST : /api/users/101
+ 1769459106768 : POST : /api/users/101
+ 1769459263302 : POST : /api/users/101
+ 1769459511201 : POST : /api/users/101
