@@ -76,9 +76,9 @@ app.get("/users", (req, res) => {
 });
 
 app
-  .route("/api/users/:id")
+  .route("/api/users/:email")
   .get(async (req, res) => {
-    const email = req.params.id;
+    const email = req.params.email;
     console.log(email);
     // const user = users.find((user) => id === user.id);
     // return res.json(user);
@@ -104,29 +104,41 @@ app
     //   return res.send(body);
     // });
   })
-  .patch((req, res) => {
+  .patch(async (req, res) => {
     const body = req.body;
     console.log(body);
-    const modifiedUser = users.find(
-      (user) => user.id === Number(req.params.id),
-    );
-    const allUsersExceptModified = users.filter(
-      (user) => user.id !== Number(req.params.id),
-    );
-    modifiedUser.id = Number(req.params.id);
-    modifiedUser.first_name = body.first_name;
-    modifiedUser.last_name = body.last_name;
-    modifiedUser.email = body.email;
-    modifiedUser.gender = body.gender;
-    modifiedUser.ip_address = body.ip_address;
-    allUsersExceptModified.splice(Number(req.params.id), 0, modifiedUser);
-    fs.writeFile(
-      "./MOCK_DATA.json",
-      JSON.stringify(allUsersExceptModified),
-      (err, data) => {
-        return res.send(body);
-      },
-    );
+    const email = req.params.email;
+    
+    const result = await User.findOne({email: email}).replaceOne({
+        first_name : body.first_name,
+        last_name : body.last_name,
+        gender : body.gender,
+        email : body.email,
+        ip_address : body.ip_address
+    })
+
+    return res.status(200).json({msg: "Document Updated"});
+
+    // const modifiedUser = users.find(
+    //   (user) => user.id === Number(req.params.id),
+    // );
+    // const allUsersExceptModified = users.filter(
+    //   (user) => user.id !== Number(req.params.id),
+    // );
+    // modifiedUser.id = Number(req.params.id);
+    // modifiedUser.first_name = body.first_name;
+    // modifiedUser.last_name = body.last_name;
+    // modifiedUser.email = body.email;
+    // modifiedUser.gender = body.gender;
+    // modifiedUser.ip_address = body.ip_address;
+    // allUsersExceptModified.splice(Number(req.params.id), 0, modifiedUser);
+    // fs.writeFile(
+    //   "./MOCK_DATA.json",
+    //   JSON.stringify(allUsersExceptModified),
+    //   (err, data) => {
+    //     return res.send(body);
+    //   },
+    // );
   })
   .delete(async (req, res) => {
     // const toDeleteUser = users.find((user) => user.id === body.id);
@@ -147,7 +159,7 @@ app
     //     return res.json(updatedUsers);
     //   },
     // );
-    await User.findOneAndDelete(req.params.id);
+    await User.findOneAndDelete({email : req.params.email});
     return res.status(204).json({msg: "deleted"});
   });
 
