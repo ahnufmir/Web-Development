@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <!-- <meta charset="utf-8"> -->
+    <title>PP</title>
+    <link rel="icon" href="My_Pic-removebg-preview.png" type="image/png" >
+</head>
+<body>
+    <img src="My_Pic-removebg-preview.png" alt="" width="15%">
+    <h1>Hello, My Name is Ahnuf Mir</h1>
+    <h2>Fun Facts about me: </h2>
+    <div class="parent">
+        <div class="day">Mon</div>
+        <div class="day">Tues</div>
+        <div class="day">Wed</div>
+        <div class="day">Thurs</div>
+        <div class="day">Fri</div>
+    </div>
+    <p>Please Connect with me on <a href="https://www.linkedin.com/in/ahnufmir/">Linkedin</a></p>
+    <input type="text" placeholder="Enter Email...">
+    <button>Join Newsletter</button>
+   <!-- <script src="script.js"></script> -->
+    <script>
+        const parent = document.querySelector('.parent');
+        const day = document.querySelector('.day');
+        for(let i = 0; i < parent.children.length; i++)
+    {
+        if(i%2==0)
+    {
+        parent.children[i].style.color = "orange";
+    }
+        console.log(parent.children[i]);
+    }
+
+    console.log(day.parentElement);
+
+    const div = document.createElement('div');
+    div.className = "divv";
+    div.id = Math.round(Math.random() * 100);
+    console.log(div);
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+    </script>
+
+
+</body>

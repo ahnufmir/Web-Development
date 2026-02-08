@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Colors</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    <h1>
+        CHANGE MY COLOR!
+    </h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        const startBtn = document.querySelector("#start");
+        const stopBtn = document.querySelector("#stop");
+        const body = document.querySelector("body");
+
+        let colors = ["white", "red", "black", "grey", "purple", "blue"];
+        let intervalID = null;
+
+        startBtn.addEventListener('click', function(){
+            //  if (intervalID !== null) return; 
+                intervalID = setInterval(() => {
+                    let randomColor = colors[Math.floor(Math.random()*colors.length)];
+                    body.style.backgroundColor = randomColor;
+                }, 500);
+            })
+        
+        stopBtn.addEventListener('click', function(){
+            clearInterval(intervalID);
+        })
+        
+    </script>
+</body>
+</html>

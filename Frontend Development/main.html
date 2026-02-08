@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <!-- <meta charset="utf-8"> -->
+    <title>PP</title>
+    <link rel="icon" href="My_Pic-removebg-preview.png" type="image/png" >
+</head>
+<body>
+    <!-- <ul id = "images">
+        <li ><img id="squirrel"src="https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg" alt=""></li>
+        <li ><img id="elephant" src="https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg" alt=""></li>
+        <li ><img id="rhino" src="https://images.pexels.com/photos/631292/pexels-photo-631292.jpeg" alt=""></li>
+    </ul> -->
+    <h1 id="text">Ahnuf Mir</h1>
+    <button id="start">Start Event</button>
+    <button id="stop">Stop Event</button>
+   <!-- <script src="script.js"></script> -->
+    <script>
+        // document.querySelector("#images").addEventListener('click', function(e){
+        //     console.log(e.target.tagName);
+        //     if(e.target.tagName=== 'IMG'){
+        //         let removeIt = e.target.parentNode;
+        //         removeIt.remove();
+        //     }
+        // })
+        let text = document.querySelector("#text");
+        // const setTime1 = setTimeout(function f(){
+        //     text.innerHTML = "BSSE24004";
+        //     console.log("Changed!");
+        // }, 2000);]]
+        // const date = function date(str){
+        //     console.log(Date.now(), str)
+        // }
+        let timeStart;
+        function startInterval(){
+                timeStart = setInterval(() => {
+                text.innerHTML = "BSSE24004";
+                console.log("happening");
+            }, 1000);
+        }
+
+        let stopButton = document.querySelector('#stop');
+        let startButton = document.querySelector('#start');
+        startButton.addEventListener('click', function(){
+            startInterval();
+            console.log("Started!");
+        })
+        stopButton.addEventListener('click', function(){
+            console.log("Stopped");
+            clearInterval(timeStart);
+
+        })
+
+    </script>
+
+
+</body>
